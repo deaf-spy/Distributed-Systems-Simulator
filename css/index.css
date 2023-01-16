@@ -1,0 +1,467 @@
+:root {
+    --purple: #6D3F8C;
+    --orange: #D97B59;
+    --red: #A6270A;
+    --lightRed: #D93B18;
+    --black1: #262626;
+
+    --pill: 15px;
+}
+
+
+html, body {
+    margin: 0px;
+    font-family: Satoshi-Regular;
+    overflow: hidden;
+}
+
+/* Main containers */
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.side {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left {
+    background-color: var(--purple);
+}
+
+#right {
+    /* position: absolute; */
+    height: 100vh;
+    background-color: var(--black1);
+    
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.5s ease-in-out;
+}
+
+.half {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* Left side */
+
+.leftBox {
+    height: 70%;
+    width: 76%;
+    padding: 10px;
+
+    transition: all 0.5s ease-in-out;
+    z-index: 3;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}
+
+#title {
+    font-family: Satoshi-BoldItalic;
+    font-size: 100px;
+
+    z-index: 2;
+}
+
+.description {
+    font-family: Satoshi-Light;
+    z-index: 2;
+    margin-left: 15px;
+    width: 450px;
+}
+
+#ballContainer {
+    top: 30%;
+    left: 30%;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ball {
+    height: 150px;
+    width: 150px;
+
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    z-index: 1;
+
+    border: 1px solid black;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    filter:hue-rotate(180deg);
+
+    animation: spin 30s linear infinite reverse;
+
+}
+
+#dssCircle {
+    height: 185px;
+    width: 185px;
+    animation: spin 30s linear infinite;
+}
+
+.horizontalBar {
+    width: 80%;
+    height: 1px;
+
+    background-color: black;
+    color: orange;
+    /* padding: 10px; */
+    margin-bottom: 30px;
+}
+
+/* Right side */
+
+#optionContainer {
+    height: 80%;
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    transition: all 0.2s ease-in-out;
+
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+
+
+}
+
+#optionContainer.hidden {
+    opacity: 0%;
+    /* transform: translateX(100vw); */
+}
+
+.option {
+    height: calc(5 * var(--pill));
+    width: calc(20 * var(--pill));
+    background-color: var(--purple);
+    border: 1px solid var(--black1);
+    color: var(--black1);
+    /* padding:   */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: calc(var(--pill)) var(--pill);
+    cursor: pointer;
+    border-radius: calc(8 * var(--pill));
+    font-family: Satoshi-Bold;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option.hidden {
+    opacity: 0%;
+    display: none;
+}
+
+#right:hover>#optionContainer {
+    transform: scale(1.05);
+    /* opacity: 70%; */
+}
+
+.option:hover {
+    transform: scale(1.1);
+    opacity: 100%;
+}
+
+
+/* Forms, input, and submit styling */
+
+form {
+    position: absolute;
+    height: 50px;
+    width: 20%;
+
+    z-index: 4;
+
+    color: var(--purple);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    font-family: monospace;
+}
+
+form.hidden {
+    opacity: 0%;
+    z-index: -1;
+    /* transform: translateX(100vw); */
+}
+
+label {
+    text-align: center;
+}
+
+input {
+    font-family: monospace;
+}
+
+input[type=text] {
+    height: 30px;
+    width: 60px;
+
+    border: none;
+    margin: 10px 20px;
+    color: var(--black1);
+
+    
+}
+
+#back, input[type=submit] {
+    border: none;
+    background-color: var(--purple);
+
+    height: 30px;
+    width: 60px;
+    border-radius: 40px;
+
+    /* margin-left: 10px; */
+    padding: 5px 10px;
+    /* margin: 10px 20px; */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back {
+    background-color: var(--orange);
+    top: 200px;
+    font-family: monospace;
+
+    position: absolute;
+}
+
+#back.hidden {
+    opacity: 0%;
+}
+
+.highlightedSpan {
+    background-color: var(--purple);
+    color: var(--black1);
+}
+
+
+/* Triangles */
+
+.triangle {
+
+    position: absolute;
+    
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+}
+
+.triangleDown {
+    border-top: 45px solid var(--black1);
+}
+
+.triangleDown.purple {
+    border-top: 45px solid var(--purple);
+}
+
+/* miscellaneous triangles and text */
+
+.triangleUp {
+
+    position: absolute;
+
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 45px solid var(--black1);
+}
+
+.triangleUp.purple {
+    border-bottom: 45px solid var(--purple);
+}
+
+.triangle2 {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-top: 55px solid var(--purple);
+
+}
+
+.triangle3 {
+    /* margin-bottom: 50px; */
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 80px solid var(--purple);
+}
+
+.miscellaneousText {
+    font-size: 10px;
+    font-family: Satoshi-Light;
+
+    bottom: 18px;
+    
+
+    position: absolute;
+}
+
+
+
+/* Pentagons */
+
+#pentagonHolder {
+
+    height: 500px;
+    width: 500px;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#pentagonHolder.hidden {
+    opacity: 0%;
+    z-index: -1;
+}
+
+.pentagonRectangle {
+    width: 90px;
+    height: 200px;
+    /* background-color: red; */
+
+    position: absolute;
+    transform-origin: bottom;
+
+    margin-top: -200px;
+
+
+
+}
+
+.pentagonRectangle.big {
+    width: 160px;
+}
+
+
+/* Circles */
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circleContainer {
+    width: 50px;
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    position: absolute;
+    margin-left: 0px;
+    top: 194px;
+
+    transform-origin:center;
+}
+
+.circleContainer.hidden {
+    opacity: 0%;
+}
+
+.smallCircle {
+    height: 4px;
+    width: 4px;
+
+    background-color: var(--purple);
+    /* padding: 2px; */
+    margin: 4px;
+
+    border-radius: 50%;
+
+}
+
+
+
+/* Animations */
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes carrier1 {
+    from {transform: rotate(54deg);}
+    to {
+        transform: rotate(54deg) translateY(220px);
+    }
+}
+
+@keyframes carrier2 {
+    from {transform: rotate(16deg);}
+    to {
+        transform: rotate(16deg) translateY(340px);
+
+    }
+}
+
+@keyframes carrier3 {
+    from {transform: rotate(164deg);}
+    to {
+        transform: rotate(164deg) translateY(-340px);
+
+    }
+}
+
+@keyframes carrier4 {
+    from {transform: rotate(306deg);}
+    to {
+        transform: rotate(306deg) translateY(220px);
+
+    }
+}

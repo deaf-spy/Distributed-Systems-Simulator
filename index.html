@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS</title>
+    <link type="text/css" rel="stylesheet" href="./css/satoshi.css">
+
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+
+</head>
+<body>
+    <div id="main">
+        <div id="left" class="side">
+            
+            <div class="leftBox">
+                <div id="ballContainer">
+                    <img id="ball" src="assets/ball-texture.webp"></img>
+                    <img id="dssCircle" src="assets/dss.svg"></img>
+                </div>
+                
+                <div id="title">
+                    Distributed Sytems Simulator
+                </div>
+
+                <div class="horizontalBar"></div>
+
+                <div class="description">
+                   Welcome to our project where we simulate distributed systems simply using ESPs. Enter the option on the right which will return the according simulation.
+                </div>
+            </div>
+        </div>
+        <div id="right" class="side" data-selected="0">
+            <div id="rightUpperHalf" class="half">
+                <div id="optionContainer">
+                    <button id="back" class="hidden" onclick="formsTransition(-1);">Back</button>
+
+                    <div class="option" onclick="formsTransition(0);">Merge Sort</div>
+                    <div class="option" onclick="formsTransition(1);">Matrix Vector Multiplication</div>
+                    <div class="option" onclick="formsTransition(2);">Deep Learning</div>
+                    <div class="option" onclick="formsTransition(3);">Curve Fitting</div>
+
+                    
+
+                    <form id="ms" class="hidden" onsubmit="afterSubmission(0);">
+                        <label for="n">
+                            Enter <span class="highlightedSpan">&nbspN </span>, the number of elements in an unsorted list:
+                        </label>
+                        <input type="text" name="ms_n" id="ms_n"></input>
+                        <label for="cores1">
+                            Enter <span class="highlightedSpan">&nbspC </span>, the number of cores as simulated by ESP-32s:
+                        </label>
+                        <input type="text" name="cores1" id="cores1"></input>
+                        <input type="submit"></input>
+                    </form>
+                    
+                    <form id="mvm" class="hidden" onsubmit="afterSubmission(1);">
+                        <label for="n">
+                            Enter <span class="highlightedSpan">&nbspN </span>, the number of elements in column vector:
+                        </label>
+                        <input type="text" name="mvm_n" id="mvm_n"></input>
+                        <label for="m">
+                            Enter <span class="highlightedSpan">&nbspM </span>, the number of elements in row of matrix:
+                        </label>
+                        <input type="text" name="mvm_n" id="mvm_m"></input>
+                        <label for="cores2">
+                            Enter <span class="highlightedSpan">&nbspC </span>, the number of cores as simulated by ESP-32s:
+                        </label>
+                        <input type="text" name="cores2" id="cores2"></input>
+                        <input type="submit"></input>
+
+                    </form>
+
+                    <div id="pentagonHolder" class="hidden">
+                        <div class="circle">
+                            <div class="pentagonRectangle big">
+                                <div class="triangle3"></div>
+                            </div>
+                            <div class="pentagonRectangle">
+                                <div class="triangle2"></div>
+                            </div>
+                            <div class="pentagonRectangle">
+                                <div class="triangle2"></div>
+                            </div>
+                            <div class="pentagonRectangle">
+                                <div class="triangle2"></div>
+                            </div>
+                            <div class="pentagonRectangle">
+                                <div class="triangle2"></div>
+                            </div>    
+                        </div>
+                    </div>
+
+                    <div class="circleContainer hidden" style="transform: rotate(54deg); animation: carrier1 2s ease-in-out infinite alternate;">
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                    </div>
+                    <div class="circleContainer hidden" style="transform: rotate(108deg); animation: carrier2 2s ease-in-out infinite alternate;">
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                    </div>
+                    <div class="circleContainer hidden" style="transform: rotate(162deg); animation: carrier3 2s ease-in-out infinite alternate;">
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                    </div>
+                    <div class="circleContainer hidden" style="transform: rotate(216deg); animation: carrier4 2s ease-in-out infinite alternate;">
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                        <div class="smallCircle"></div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="triangleDown triangle" style="top: 15px; left: 40%;"></div>
+        <div class="triangleUp triangle" style="bottom: 15px; left: 5%;"></div>
+        <div class="triangleDown triangle purple" style="top: 15px; right: 40%;"></div>
+        <div class="triangleUp triangle purple" style="bottom: 15px; right: 5%;"></div>
+        <div class="miscellaneousText" style="left: 10%; color: var(--black1);">Made for <br> Syntax Error <br> Hackathon 2023</div>
+        <div class="miscellaneousText" style="right: 10%; color: var(--purple);">Made for <br> Syntax Error <br> Hackathon 2023</div>
+        <div class="miscellaneousText" style="top: 20px; left: 45%; color: var(--black1);">Best Viewed <br> on Desktop</div>
+        <div class="miscellaneousText" style="top: 20px; right: 45%; color: var(--purple);">Best Viewed <br> on Fullscreen</div>
+        
+
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
